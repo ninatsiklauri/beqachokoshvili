@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+}
+.dashboard {
+  background-color: #022136;
+  color: white;
+  padding: 10px 0;
+  width: 30%;
+  height: 100vh;
+}
+.admin {
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #fff;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+}
+
+.products {
+  padding: 10px;
+}
+
+.products a {
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.table-wrapper {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.fl-table th,
+.fl-table td {
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-family: sans-serif;
+}
+.fl-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.fl-table th {
+  background-color: #f2f2f2;
+}
+.delete-button,
+.edit-button {
+  background-color: #fff;
+  color: #000000;
+  border: 1px solid #f2f2f2;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 7px;
+  margin-right: 5px;
+  transition: 1s;
+}
+.delete-button:hover {
+  background-color: #ff1900;
+  border: 1px solid #f2f2f2;
+  color: #000000;
+  transition: 1s;
+}
+.delete-button:hover {
+  background-color: #ff1900;
+  border: 1px solid #f2f2f2;
+  color: #000000;
+  transition: 1s;
+}
+.edit-button {
+  background-color: #3498db;
+}
+.new-image-btn {
+  margin-bottom: 10px;
+}
+th {
+  font-size: 17px;
+}
+td {
+  font-size: 14px;
+}
+button {
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h4 {
+  letter-spacing: 1px;
+  padding: 5px;
+  padding-bottom: 50px;
+  font-family: sans-serif;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 60px;
+  height: 80px;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.pagination-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination button {
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #3498db;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.pagination button.active {
+  background-color: #3498db;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.log-out {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

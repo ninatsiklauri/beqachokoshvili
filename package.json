@@ -1,0 +1,33 @@
+{
+  "name": "nina-tsiklauri-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@prisma/client": "5.4.2",
+    "@react-email/components": "^0.0.7",
+    "@react-email/tailwind": "^0.0.8",
+    "axios": "^1.5.1",
+    "debug": "^4.3.4",
+    "next": "^13.5.4",
+    "next-cloudinary": "^4.10.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-masonry-css": "^1.0.16",
+    "react-responsive-carousel": "^3.2.23",
+    "resend": "^1.1.0",
+    "supports-color": "^9.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "prisma": "5.4.2",
+    "typescript": "^5"
+  }
+}

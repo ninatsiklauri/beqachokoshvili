@@ -1,0 +1,53 @@
+.informationModal {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #48494dc2;
+  padding: 15px;
+}
+
+.modal-open {
+  display: flex;
+}
+.modal-open-body {
+  overflow: hidden;
+}
+.informationImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.informationModal {
+  background-color: rgba(255, 255, 255, 0.829);
+  padding: 20px;
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  overflow: auto;
+}
+.modal img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.modal h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.about-image {
+  margin-top: 40px;
+}
