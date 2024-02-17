@@ -1,73 +1,86 @@
-'use client'
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react'
-import '../styles/home.css'
-import Link from 'next/link'
-import Masonry from 'react-masonry-css'
-import Lightbox from 'Slider'
-import Information from 'Information'
+import React, { useEffect, useRef, useState } from "react";
+import "../styles/home.css";
+import Link from "next/link";
+import Masonry from "react-masonry-css";
+import Lightbox from "Slider";
+import Information from "Information";
 
 interface Image {
-  path: string
+  path: string;
 }
 
 const breakpointColumnsObj = {
   default: 4,
   900: 2,
-}
+};
 
-export default function OverView({ data }: any) {
-  const [navOpen, setNavOpen] = useState(false)
-  const navRef = useRef<HTMLDivElement | null>(null)
-  const [openModal, setOpenModal] = useState(false)
-  const [openInformationModal, setOpenInformationModal] = useState(false)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+export default function Overview() {
+  const [navOpen, setNavOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [openInformationModal, setOpenInformationModal] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [images, setImages] = useState<Image[]>([]);
+
+  const fetchImages = async () => {
+    const request = await fetch("/api/photos");
+    if (!request.ok) return null;
+
+    const response = await request.json();
+    setImages(response.data);
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    fetchImages();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     if (openModal) {
-      document.body.classList.add('body-no-scroll')
+      document.body.classList.add("body-no-scroll");
     } else {
-      document.body.classList.remove('body-no-scroll')
+      document.body.classList.remove("body-no-scroll");
     }
 
     return () => {
-      document.body.classList.remove('body-no-scroll')
-    }
-  }, [openModal])
+      document.body.classList.remove("body-no-scroll");
+    };
+  }, [openModal]);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (navRef.current && !(navRef.current as any).contains(event.target)) {
-      setNavOpen(false)
+      setNavOpen(false);
     }
-  }
+  };
 
   const handleOpenInformation = () => {
-    setOpenModal(false)
-    setOpenInformationModal(true)
-    setNavOpen(false)
-  }
+    setOpenModal(false);
+    setOpenInformationModal(true);
+    setNavOpen(false);
+  };
 
   const handleImageClick = (index: number) => {
-    console.log(index)
-    setSelectedImageIndex(index)
-    setLightboxOpen(true)
-  }
+    console.log(index);
+    setSelectedImageIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <div className="page-container">
       <header>
         <div ref={navRef} className="container">
           <nav id="navigation">
-            <ul className={`nav-link ${navOpen ? 'active' : ''}`}>
+            <ul className={`nav-link ${navOpen ? "active" : ""}`}>
               <li>
                 <Link href="/" className="link-item">
                   OVERVIEW
@@ -107,7 +120,7 @@ export default function OverView({ data }: any) {
               </li>
             </ul>
             <div
-              className={`burger ${navOpen ? 'open' : ''}`}
+              className={`burger ${navOpen ? "open" : ""}`}
               onClick={() => setNavOpen(!navOpen)}
             >
               <div className="line1"></div>
@@ -128,7 +141,7 @@ export default function OverView({ data }: any) {
               className="photo-gallery"
               columnClassName="photo-gallery-column"
             >
-              {data.map((image: any, index: any) => (
+              {images.map((image: any, index: any) => (
                 <div className="photo" key={index}>
                   <img
                     src={image.path}
@@ -145,7 +158,7 @@ export default function OverView({ data }: any) {
 
       {lightboxOpen && (
         <Lightbox
-          images={data}
+          images={images}
           selectedImageIndex={selectedImageIndex}
           onClose={() => setLightboxOpen(false)}
         />
@@ -164,5 +177,5 @@ export default function OverView({ data }: any) {
         </div>
       </footer>
     </div>
-  )
+  );
 }

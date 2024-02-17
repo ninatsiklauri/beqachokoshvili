@@ -137,10 +137,9 @@ function App(): JSX.Element {
           {" "}
           log out
         </button>
-        <h4> images</h4>
-
+        <br />
         <AddImage onImageSelect={handleImageSelect} />
-
+        <br />
         <table className="fl-table">
           <thead>
             <tr>
